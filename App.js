@@ -5,8 +5,7 @@ import CategoriesScreen from './screens/CategoriesScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>ΟΥΛΕ ΤΕ ΚΑΙ ΜΑΛΑ ΧΑΙΡΕ!</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <CategoriesScreen></CategoriesScreen>
     </View>
   );
