@@ -10,13 +10,23 @@ const MealsOverviewScreen = ({ route }) => {
   });
 
   const renderMealItem = (itemData) => {
-    return <MealItem title={itemData.item.title}/>
-    
-  }
+    return (
+      <MealItem
+        title={itemData.item.title}
+        imageUrl={itemData.item.imageUrl}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+      />
+    );
+  };
   return (
     <View style={styles.container}>
-      {/* <Text>Meals Overview Screen - {categoryId}</Text> */}
-      <FlatList data = {displayedMeals} keyExtractor={i => i.id} renderItem={renderMealItem}/>
+      <FlatList
+        data={displayedMeals}
+        keyExtractor={(i) => i.id}
+        renderItem={renderMealItem}
+      />
     </View>
   );
 };
@@ -25,7 +35,8 @@ export default MealsOverviewScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    paddingHorizontal: 5,
+    marginBottom: 25,
     // backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
