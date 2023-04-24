@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
     backgroundColor: 'white',
     elevation: 4,
-    shadowColor: 'black',
-    shadowOpacity: 0.25,
+    shadowColor: 'white',
+    shadowOpacity: 0.75,
     shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 8,
+    shadowRadius: 10,
   },
   image: {
     width: '100%',

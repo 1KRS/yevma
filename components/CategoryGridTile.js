@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 4,
     backgroundColor: 'white',
-    shadowColor: 'black',
-    shadowOpacity: 0.25,
+    shadowColor: 'white',
+    shadowOpacity: 0.5,
     shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 4,
+    shadowRadius: 8,
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
   },
   button: {
