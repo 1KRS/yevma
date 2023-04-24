@@ -3,9 +3,14 @@ import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = ({ navigation }) => {
+
   const renderCategoryItem = (itemData) => {
+
     const pressHandler = () => {
-      navigation.navigate('MealsOverview');
+      navigation.navigate('MealsOverview', {
+        categoryId: itemData.item.id,
+        
+       });
     };
 
     return (
@@ -15,6 +20,7 @@ const CategoriesScreen = ({ navigation }) => {
         onPress={pressHandler}
       />
     );
+    
   };
 
   return (
