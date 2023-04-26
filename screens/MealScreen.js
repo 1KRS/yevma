@@ -1,12 +1,32 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { MEALS } from '../data/dummy-data';
 import MealDetails from '../components/MealDetails';
 import Subtitle from '../components/MealDetail/Subtitle';
 import List from '../components/MealDetail/List';
+import { useLayoutEffect } from 'react';
 
-const MealScreen = ({ route }) => {
+const MealScreen = ({ route, navigation }) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((m) => m.id === mealId);
+
+  const headerButtonPressHandler = () => {
+    console.log('Ζουλήχτκε!');
+  };
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="Ζούλα με" onPress={headerButtonPressHandler} />;
+      },
+    });
+  }, [navigation]);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>

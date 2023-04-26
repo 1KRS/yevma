@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import CategoriesScreen from './screens/CategoriesScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -36,9 +36,10 @@ export default function App() {
           <Stack.Screen
             name="Meal"
             component={MealScreen}
-            // options={({route, navigation}) => {
-            //   const categoryId = route.params.categoryId;
-            //   return { title: categoryId };
+            // options={{
+            //   headerRight: () => {
+            //     return <Button title='Ζούλα με'/> 
+            //   }
             // }}
           />
         </Stack.Navigator>
