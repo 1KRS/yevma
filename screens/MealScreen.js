@@ -11,6 +11,7 @@ import MealDetails from '../components/MealDetails';
 import Subtitle from '../components/MealDetail/Subtitle';
 import List from '../components/MealDetail/List';
 import { useLayoutEffect } from 'react';
+import IconButton from '../components/IconButton';
 
 const MealScreen = ({ route, navigation }) => {
   const mealId = route.params.mealId;
@@ -23,10 +24,17 @@ const MealScreen = ({ route, navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="Ζούλα με" onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            iconName="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
       },
     });
   }, [navigation]);
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
