@@ -8,6 +8,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import MealScreen from './screens/MealScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -20,10 +21,31 @@ const DrawerNavigator = () => {
         headerStyle: { backgroundColor: '#428301' },
         headerTintColor: 'white',
         sceneContainerStyle: { backgroundColor: '#BDB51A' },
+        drawerContentStyle: { backgroundColor: '#5E5900' }, // Για κάποιον λόγο είναι διαφορετικό μεταξύ stack και drawer
+        drawerActiveBackgroundColor: '#00A4F0',
+        drawerActiveTintColor: '#FFCC01',
+        drawerInactiveTintColor: '#FFCC01',
       }}
     >
-      <Drawer.Screen name="Κατηγορίες" component={CategoriesScreen} />
-      <Drawer.Screen name="Αγαπημένα" component={FavoritesScreen} />
+      <Drawer.Screen
+        name="Κατηγορίες"
+        component={CategoriesScreen}
+        options={{
+          title: 'Κατηγορίες',
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="list" color={color} size={size} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Αγαπημένα"
+        component={FavoritesScreen}
+        options={{
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="star" color={color} size={size} />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 };
@@ -51,7 +73,7 @@ export default function App() {
           <Stack.Screen
             name="Meal"
             component={MealScreen}
-            options={{title: 'Οδηγίες'}}
+            options={{ title: 'Οδηγίες' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
